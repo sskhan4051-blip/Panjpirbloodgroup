@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAJNJPIR BLOOD GROUP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid #ffcdd2;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-main {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo-sub {
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .app-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .nav-tab.active {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: #f5f5f5;
+        }
+
+        .ready-indicator {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 44px;
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b71c1c;
+        }
+
+        .btn-success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #3d8b40;
+        }
+
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+
+        .btn-info {
+            background: #2196F3;
+            color: white;
+        }
+
+        .btn-warning {
+            background: #FF9800;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #F57C00;
+        }
+
+        .btn-call {
+            padding: 8px 12px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-call:hover {
+            background: #3d8b40;
+        }
+
+        /* Blood Group Selection */
+        .blood-groups {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .blood-group {
+            padding: 15px;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #ddd;
+            font-weight: bold;
+        }
+
+        .blood-group.selected, .blood-group:hover {
+            background: #d32f2f;
+            color: white;
+            border-color: #d32f2f;
+        }
+
+        /* Search Section */
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            padding: 12px 20px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .blood-group-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 100;
+        }
+
+        .blood-group-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .blood-group-option:hover {
+            background: #f5f5f5;
+        }
+
+        /* Donor List */
+        .donor-list {
+            margin-top: 20px;
+        }
+
+        .donor-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #d32f2f;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .donor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .donor-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .donor-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .donor-contact {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .donation-info {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 4px;
+            border-left: 3px solid #4CAF50;
+        }
+
+        .ready-to-donate {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .ready-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        /* Admin Section */
+        .admin-login {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .admin-actions {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .admin-search {
+            margin-bottom: 20px;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #d32f2f;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Edit Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            z-index: 10;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .modal-title {
+            margin-right: 30px;
+            margin-bottom: 20px;
+            color: #d32f2f;
+        }
+
+        /* Footer */
+        .footer {
+            background: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .emergency-contact {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blood-groups {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .donor-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 15px;
+            }
+            
+            .donor-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Red Banner -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <rect width="100" height="100" fill="#d32f2f" rx="10" />
+                    <text x="50" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">PANJPIR</text>
+                    <text x="50" y="60" text-anchor="middle" fill="white" font-size="12">BLOOD</text>
+                    <text x="50" y="80" text-anchor="middle" fill="white" font-size="12">GROUP</text>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <span class="logo-main">PANJPIR</span>
+                <span class="logo-sub">BLOOD GROUP</span>
+            </div>
+        </div>
+        <div class="app-name">BLOOD DONATION APP</div>
+    </header>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-target="home">Home</div>
+            <div class="nav-tab" data-target="search">Find Donor</div>
+            <div class="nav-tab" data-target="register">Register</div>
+            <div class="nav-tab" data-target="admin">Admin</div>
+        </div>
+
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <h2>Welcome to PANJPIR BLOOD GROUP</h2>
+            <p>Our mission is to connect blood donors with those in need. Together, we can save lives!</p>
+            
+            <div class="stats-container">
+                <div class="stat-card" id="total-donors-card">
+                    <div class="stat-value" id="total-donors">0</div>
+                    <div class="stat-label">Total Donors</div>
+                </div>
+                <div class="stat-card" id="total-donations-card">
+                    <div class="stat-value" id="total-donations">0</div>
+                    <div class="stat-label">Total Donations</div>
+                </div>
+                <div class="stat-card" id="ready-donors-card">
+                    <div class="stat-value" id="ready-donors">0</div>
+                    <div class="stat-label">Ready to Donate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="emergency-requests">12</div>
+                    <div class="stat-label">Emergency Requests</div>
+                </div>
+            </div>
+            
+            <h3>Blood Group Availability</h3>
+            <div class="blood-groups" id="home-blood-groups">
+                <div class="blood-group" data-value="A+">A+ <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="A-">A- <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="B+">B+ <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="B-">B- <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="AB+">AB+ <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="AB-">AB- <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="O+">O+ <span class="count">(0)</span></div>
+                <div class="blood-group" data-value="O-">O- <span class="count">(0)</span></div>
+            </div>
+            
+            <h3>Donors Ready to Donate</h3>
+            <div class="donor-list" id="ready-donors-list">
+                <!-- Ready donors will appear here -->
+            </div>
+            
+            <h3>Recent Donors</h3>
+            <div class="donor-list" id="recent-donors">
+                <!-- Recent donors will appear here -->
+            </div>
+            
+            <h3>Why Donate Blood?</h3>
+            <ul>
+                <li>Your donation can save up to 3 lives</li>
+                <li>Blood is needed every 2 seconds</li>
+                <li>Only 5% of eligible donors donate blood</li>
+            </ul>
+        </section>
+
+        <!-- Search Section -->
+        <section id="search" class="content-section">
+            <h2>Find a Blood Donor</h2>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Select blood group (e.g., A+, B-, O+)" readonly>
+                    <button class="search-btn">Search</button>
+                </div>
+                <div class="blood-group-dropdown">
+                    <div class="blood-group-option" data-value="A+">A+</div>
+                    <div class="blood-group-option" data-value="A-">A-</div>
+                    <div class="blood-group-option" data-value="B+">B+</div>
+                    <div class="blood-group-option" data-value="B-">B-</div>
+                    <div class="blood-group-option" data-value="AB+">AB+</div>
+                    <div class="blood-group-option" data-value="AB-">AB-</div>
+                    <div class="blood-group-option" data-value="O+">O+</div>
+                    <div class="blood-group-option" data-value="O-">O-</div>
+                </div>
+            </div>
+            
+            <div class="donor-list" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="register" class="content-section">
+            <h2>Register as a Blood Donor</h2>
+            <form id="donor-form">
+                <div class="form-group">
+                    <label for="donorName">Donor Name</label>
+                    <input type="text" id="donorName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fatherName">Father's Name</label>
+                    <input type="text" id="fatherName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" id="contact" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Blood Group</label>
+                    <div class="blood-groups">
+                        <div class="blood-group" data-value="A+">A+</div>
+                        <div class="blood-group" data-value="A-">A-</div>
+                        <div class="blood-group" data-value="B+">B+</div>
+                        <div class="blood-group" data-value="B-">B-</div>
+                        <div class="blood-group" data-value="AB+">AB+</div>
+                        <div class="blood-group" data-value="AB-">AB-</div>
+                        <div class="blood-group" data-value="O+">O+</div>
+                        <div class="blood-group" data-value="O-">O-</div>
+                    </div>
+                    <input type="hidden" id="bloodGroup" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ready-to-donate-toggle">Ready to Donate Now</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="ready-to-donate-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-success" style="width: 100%;">Register as Donor</button>
+            </form>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin" class="content-section">
+            <h2>Admin Login</h2>
+            
+            <div class="admin-login">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter admin username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter admin password">
+                </div>
+                
+                <button id="login-btn" class="btn btn-primary">Login</button>
+            </div>
+            
+            <div class="admin-actions">
+                <h3>Admin Panel</h3>
+                <p>Welcome, Admin! You can manage all donor records from here.</p>
+                
+                <div class="admin-search">
+                    <div class="search-box">
+                        <input type="text" id="admin-search-input" class="search-input" placeholder="Search donor by mobile number">
+                        <button id="admin-search-btn" class="search-btn">Search</button>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="view-all-btn" class="btn btn-danger">View All Donors</button>
+                    <button id="export-btn" class="btn btn-warning">Export Data</button>
+                    <button id="settings-btn" class="btn btn-info">System Settings</button>
+                </div>
+                
+                <div class="donor-list" id="admin-donor-list">
+                    <h3>All Donors</h3>
+                    <!-- Donors will be displayed here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Donor Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">Edit Donor Information</h2>
+            <form id="edit-donor-form">
+                <input type="hidden" id="edit-donor-id">
+                <div class="form-group">
+                    <label for="edit-donorName">Donor Name</label>
+                    <input type="text" id="edit-donorName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-fatherName">Father's Name</label>
+                    <input type="text" id="edit-fatherName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-address">Address</label>
+                    <textarea id="edit-address" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-contact">Contact Number</label>
+                    <input type="tel" id="edit-contact" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Blood Group</label>
+                    <div class="blood-groups">
+                        <div class="blood-group" data-value="A+">A+</div>
+                        <div class="blood-group" data-value="A-">A-</div>
+                        <div class="blood-group" data-value="B+">B+</div>
+                        <div class="blood-group" data-value="B-">B-</div>
+                        <div class="blood-group" data-value="AB+">AB+</div>
+                        <div class="blood-group" data-value="AB-">AB-</div>
+                        <div class="blood-group" data-value="O+">O+</div>
+                        <div class="blood-group" data-value="O-">O-</div>
+                    </div>
+                    <input type="hidden" id="edit-bloodGroup" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="last-donation">Last Donation Date</label>
+                    <input type="date" id="last-donation" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="donation-count">Total Donations</label>
+                    <input type="number" id="donation-count" class="form-control" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-ready-to-donate">Ready to Donate</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="edit-ready-to-donate">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">System Settings</h2>
+            <div class="form-group">
+                <label for="emergency-number">Emergency Contact Number</label>
+                <input type="text" id="emergency-number" class="form-control" value="0310-9523004">
+            </div>
+            <div class="form-group">
+                <label for="admin-password">Change Admin Password</label>
+                <input type="password" id="admin-password" class="form-control" placeholder="Enter new password">
+            </div>
+            <button id="save-settings" class="btn btn-primary">Save Settings</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="emergency-contact">
+            <i class="fas fa-phone fa-rotate-90"></i> Emergency Contact: <span id="footer-emergency">0310-9523004</span>
+        </div>
+        <div class="copyright">
+            All Rights Reserved by Sabir Khan
+        </div>
+    </footer>
+
+    <script>
+        // Sample donor data with donation history
+        let donors = [
+            {
+                id: 1,
+                name: "Ali Ahmed",
+                father: "Ahmed Khan",
+                bloodGroup: "O+",
+                contact: "0300-1234567",
+                address: "Lahore",
+                lastDonation: "2023-10-15",
+                donationCount: 3,
+                registered: true,
+                readyToDonate: true
+            },
+            {
+                id: 2,
+                name: "Fatima Khan",
+                father: "Khan Sahab",
+                bloodGroup: "AB-",
+                contact: "0312-7654321",
+                address: "Karachi",
+                lastDonation: "2023-09-20",
+                donationCount: 2,
+                registered: true,
+                readyToDonate: false
+            },
+            {
+                id: 3,
+                name: "Usman Ali",
+                father: "Ali Raza",
+                bloodGroup: "A+",
+                contact: "0333-9876543",
+                address: "Islamabad",
+                lastDonation: "2023-11-05",
+                donationCount: 5,
+                registered: true,
+                readyToDonate: true
+            },
+            {
+                id: 4,
+                name: "Zainab Malik",
+                father: "Malik Asif",
+                bloodGroup: "B-",
+                contact: "0345-1122334",
+                address: "Rawalpindi",
+                lastDonation: "2023-08-12",
+                donationCount: 1,
+                registered: true,
+                readyToDonate: false
+            }
+        ];
+
+        // Track logged in user
+        let currentUser = null;
+
+        // Navigation tabs
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).classList.add('active');
+                
+                // Update home page stats when home tab is clicked
+                if (tab.dataset.target === 'home') {
+                    updateHomePageStats();
+                }
+            });
+        });
+
+        // Stat card click handlers
+        document.getElementById('total-donors-card').addEventListener('click', () => {
+            // Switch to search tab and show all donors
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            
+            document.querySelector('[data-target="search"]').classList.add('active');
+            document.getElementById('search').classList.add('active');
+            
+            // Set the search input value to show all
+            document.querySelector('.search-input').value = "All Donors";
+            
+            // Display all donors
+            displaySearchResults(donors);
+        });
+
+        document.getElementById('total-donations-card').addEventListener('click', () => {
+            // Switch to search tab and show donors with donation history
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            
+            document.querySelector('[data-target="search"]').classList.add('active');
+            document.getElementById('search').classList.add('active');
+            
+            // Set the search input value
+            document.querySelector('.search-input').value = "Donors with Donation History";
+            
+            // Filter donors who have donated at least once
+            const donorsWithHistory = donors.filter(donor => donor.donationCount > 0);
+            
+            // Display results
+            displaySearchResults(donorsWithHistory);
+        });
+
+        document.getElementById('ready-donors-card').addEventListener('click', () => {
+            // Switch to search tab and show ready donors
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            
+            document.querySelector('[data-target="search"]').classList.add('active');
+            document.getElementById('search').classList.add('active');
+            
+            // Set the search input value
+            document.querySelector('.search-input').value = "Ready to Donate";
+            
+            // Filter ready donors
+            const readyDonors = donors.filter(donor => donor.readyToDonate);
+            
+            // Display results
+            displaySearchResults(readyDonors);
+        });
+
+        // Update home page with stats and donor information
+        function updateHomePageStats() {
+            // Update total donors
+            document.getElementById('total-donors').textContent = donors.length;
+            
+            // Update total donations
+            const totalDonations = donors.reduce((total, donor) => total + donor.donationCount, 0);
+            document.getElementById('total-donations').textContent = totalDonations;
+            
+            // Update ready donors
+            const readyDonors = donors.filter(donor => donor.readyToDonate).length;
+            document.getElementById('ready-donors').textContent = readyDonors;
+            
+            // Update blood group counts
+            const bloodGroupCounts = {};
+            donors.forEach(donor => {
+                if (!bloodGroupCounts[donor.bloodGroup]) {
+                    bloodGroupCounts[donor.bloodGroup] = 0;
+                }
+                bloodGroupCounts[donor.bloodGroup]++;
+            });
+            
+            // Update blood group labels with counts
+            document.querySelectorAll('#home-blood-groups .blood-group').forEach(group => {
+                const bloodGroup = group.dataset.value;
+                const count = bloodGroupCounts[bloodGroup] || 0;
+                group.querySelector('.count').textContent = `(${count})`;
+            });
+            
+            // Show ready donors
+            const readyDonorsList = donors.filter(donor => donor.readyToDonate);
+            displayReadyDonors(readyDonorsList);
+            
+            // Show recent donors (last 5)
+            const recentDonors = [...donors]
+                .sort((a, b) => new Date(b.lastDonation) - new Date(a.lastDonation))
+                .slice(0, 5);
+                
+            displayRecentDonors(recentDonors);
+            
+            // Update ready indicator on Find Donor tab
+            updateReadyIndicator();
+        }
+
+        // Update ready indicator on Find Donor tab
+        function updateReadyIndicator() {
+            const readyDonors = donors.filter(donor => donor.readyToDonate);
+            const searchTab = document.querySelector('[data-target="search"]');
+            
+            if (readyDonors.length > 0) {
+                if (!searchTab.querySelector('.ready-indicator')) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'ready-indicator';
+                    searchTab.appendChild(indicator);
+                }
+            } else {
+                const indicator = searchTab.querySelector('.ready-indicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+        }
+
+        // Display ready donors on home page
+        function displayReadyDonors(donorsList) {
+            const readyDonorsContainer = document.getElementById('ready-donors-list');
+            readyDonorsContainer.innerHTML = '';
+            
+            if (donorsList.length === 0) {
+                readyDonorsContainer.innerHTML = '<p>No donors are currently ready to donate.</p>';
+                return;
+            }
+            
+            donorsList.forEach(donor => {
+                const lastDonation = new Date(donor.lastDonation).toLocaleDateString();
+                
+                const donorCard = document.createElement('div');
+                donorCard.className = 'donor-card ready-to-donate';
+                
+                donorCard.innerHTML = `
+                    <div class="donor-header">
+                        <div class="donor-name">${donor.name} <span class="ready-badge">Ready to Donate</span></div>
+                        <a href="tel:${donor.contact}" class="btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                    <div class="donor-details">
+                        <div><strong>Blood Group:</strong> ${donor.bloodGroup}</div>
+                        <div><strong>Contact:</strong> ${donor.contact}</div>
+                        <div><strong>Address:</strong> ${donor.address}</div>
+                        <div><strong>Last Donation:</strong> ${lastDonation}</div>
+                    </div>
+                    <div class="donation-info">
+                        <strong>Donation History:</strong> ${donor.donationCount} time(s)
+                    </div>
+                `;
+                readyDonorsContainer.appendChild(donorCard);
+            });
+        }
+
+        // Display recent donors on home page
+        function displayRecentDonors(donorsList) {
+            const recentDonorsContainer = document.getElementById('recent-donors');
+            recentDonorsContainer.innerHTML = '';
+            
+            if (donorsList.length === 0) {
+                recentDonorsContainer.innerHTML = '<p>No donors registered yet.</p>';
+                return;
+            }
+            
+            donorsList.forEach(donor => {
+                const lastDonation = new Date(donor.lastDonation).toLocaleDateString();
+                
+                const donorCard = document.createElement('div');
+                donorCard.className = 'donor-card';
+                
+                donorCard.innerHTML = `
+                    <div class="donor-header">
+                        <div class="donor-name">${donor.name} ${donor.readyToDonate ? '<span class="ready-badge">Ready</span>' : ''}</div>
+                        <a href="tel:${donor.contact}" class="btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                    <div class="donor-details">
+                        <div><strong>Blood Group:</strong> ${donor.bloodGroup}</div>
+                        <div><strong>Contact:</strong> ${donor.contact}</div>
+                        <div><strong>Address:</strong> ${donor.address}</div>
+                        <div><strong>Last Donation:</strong> ${lastDonation}</div>
+                    </div>
+                    <div class="donation-info">
+                        <strong>Donation History:</strong> ${donor.donationCount} time(s)
+                    </div>
+                `;
+                recentDonorsContainer.appendChild(donorCard);
+            });
+        }
+
+        // Blood group selection in home page
+        document.querySelectorAll('#home-blood-groups .blood-group').forEach(group => {
+            group.addEventListener('click', () => {
+                const bloodGroup = group.dataset.value;
+                
+                // Switch to search tab
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                document.querySelector('[data-target="search"]').classList.add('active');
+                document.getElementById('search').classList.add('active');
+                
+                // Set the search input value
+                document.querySelector('.search-input').value = bloodGroup;
+                
+                // Filter donors by selected blood group
+                const filteredDonors = donors.filter(donor => donor.bloodGroup === bloodGroup);
+                
+                // Display results
+                displaySearchResults(filteredDonors);
+            });
+        });
+
+        // Blood group selection in registration
+        document.querySelectorAll('#register .blood-group').forEach(group => {
+            group.addEventListener('click', () => {
+                // Remove selected class from all groups
+                document.querySelectorAll('#register .blood-group').forEach(g => g.classList.remove('selected'));
+                
+                // Add selected class to clicked group
+                group.classList.add('selected');
+                document.getElementById('bloodGroup').value = group.dataset.value;
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        const dropdown = document.querySelector('.blood-group-dropdown');
+        const searchResults = document.getElementById('search-results');
+        
+        // Show dropdown when search input is clicked
+        searchInput.addEventListener('click', () => {
+            dropdown.style.display = 'block';
+        });
+        
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                dropdown.style.display = 'none';
+            }
+        });
+        
+        // Select blood group from dropdown
+        document.querySelectorAll('.blood-group-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const bloodGroup = option.dataset.value;
+                searchInput.value = bloodGroup;
+                dropdown.style.display = 'none';
+                
+                // Filter donors by selected blood group
+                const filteredDonors = donors.filter(donor => donor.bloodGroup === bloodGroup);
+                
+                // Display results
+                displaySearchResults(filteredDonors);
+            });
+        });
+        
+        // Function to display search results
+        function displaySearchResults(results) {
+            if (results.length === 0) {
+                searchResults.innerHTML = '<p>No donors found with the selected blood group.</p>';
+                return;
+            }
+            
+            searchResults.innerHTML = '';
+            results.forEach(donor => {
+                const lastDonation = new Date(donor.lastDonation).toLocaleDateString();
+                
+                const donorCard = document.createElement('div');
+                donorCard.className = donor.readyToDonate ? 'donor-card ready-to-donate' : 'donor-card';
+                
+                donorCard.innerHTML = `
+                    <div class="donor-header">
+                        <div class="donor-name">${donor.name} ${donor.readyToDonate ? '<span class="ready-badge">Ready to Donate</span>' : ''}</div>
+                        <a href="tel:${donor.contact}" class="btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                    <div class="donor-details">
+                        <div><strong>Blood Group:</strong> ${donor.bloodGroup}</div>
+                        <div><strong>Contact:</strong> ${donor.contact}</div>
+                        <div><strong>Address:</strong> ${donor.address}</div>
+                        <div><strong>Father's Name:</strong> ${donor.father}</div>
+                    </div>
+                    <div class="donation-info">
+                        <strong>Last Donation:</strong> ${lastDonation} | <strong>Total Donations:</strong> ${donor.donationCount}
+                    </div>
+                `;
+                searchResults.appendChild(donorCard);
+            });
+        }
+        
+        // Search button click
+        document.querySelector('.search-btn').addEventListener('click', () => {
+            const bloodGroup = searchInput.value;
+            if (!bloodGroup) {
+                alert('Please select a blood group first');
+                return;
+            }
+            
+            // Filter donors by selected blood group
+            const filteredDonors = donors.filter(donor => donor.bloodGroup === bloodGroup);
+            
+            // Display results
+            displaySearchResults(filteredDonors);
+        });
+
+        // Admin search by mobile number
+        document.getElementById('admin-search-btn').addEventListener('click', () => {
+            const searchTerm = document.getElementById('admin-search-input').value.trim();
+            
+            if (!searchTerm) {
+                alert('Please enter a mobile number to search');
+                return;
+            }
+            
+            const foundDonors = donors.filter(donor => donor.contact.includes(searchTerm));
+            
+            if (foundDonors.length === 0) {
+                alert('No donors found with this mobile number');
+                return;
+            }
+            
+            displayAdminDonors(foundDonors);
+        });
+
+        // Donor registration form submission
+        document.getElementById('donor-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('donorName').value;
+            const father = document.getElementById('fatherName').value;
+            const address = document.getElementById('address').value;
+            const contact = document.getElementById('contact').value;
+            const bloodGroup = document.getElementById('bloodGroup').value;
+            const readyToDonate = document.getElementById('ready-to-donate-toggle').checked;
+            
+            // Check if donor already exists with this phone number
+            const existingDonor = donors.find(d => d.contact === contact);
+            
+            if (existingDonor) {
+                alert('A donor with this mobile number is already registered. Please use a different number.');
+                return;
+            }
+            
+            // Add to donors array
+            donors.push({
+                id: donors.length > 0 ? Math.max(...donors.map(d => d.id)) + 1 : 1,
+                name,
+                father,
+                bloodGroup,
+                contact,
+                address,
+                lastDonation: new Date().toISOString().split('T')[0], // Today's date
+                donationCount: 0,
+                registered: true,
+                readyToDonate
+            });
+            
+            alert('Thank you for registering as a blood donor! Your information has been saved.');
+            document.getElementById('donor-form').reset();
+            document.querySelectorAll('.blood-group').forEach(g => g.classList.remove('selected'));
+            document.getElementById('ready-to-donate-toggle').checked = false;
+            
+            // Update home page stats
+            updateHomePageStats();
+        });
+
+        // Admin login
+        document.getElementById('login-btn').addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === 'panjpir1800') {
+                document.querySelector('.admin-login').style.display = 'none';
+                document.querySelector('.admin-actions').style.display = 'block';
+                displayAllDonors();
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        });
+
+        // View all donors button
+        document.getElementById('view-all-btn').addEventListener('click', displayAllDonors);
+
+        // Export data button
+        document.getElementById('export-btn').addEventListener('click', exportData);
+
+        // Settings button
+        document.getElementById('settings-btn').addEventListener('click', () => {
+            document.getElementById('settingsModal').style.display = 'block';
+        });
+
+        // Close modals
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', () => {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Save settings
+        document.getElementById('save-settings').addEventListener('click', () => {
+            const emergencyNumber = document.getElementById('emergency-number').value;
+            const newPassword = document.getElementById('admin-password').value;
+            
+            if (emergencyNumber) {
+                document.getElementById('footer-emergency').textContent = emergencyNumber;
+            }
+            
+            if (newPassword) {
+                alert('Admin password changed successfully!');
+                document.getElementById('admin-password').value = '';
+            }
+            
+            document.getElementById('settingsModal').style.display = 'none';
+            alert('Settings saved successfully!');
+        });
+
+        // Function to display all donors in admin panel
+        function displayAllDonors() {
+            displayAdminDonors(donors);
+        }
+
+        // Function to display donors in admin panel
+        function displayAdminDonors(donorsList) {
+            const adminDonorList = document.getElementById('admin-donor-list');
+            adminDonorList.innerHTML = '<h3>Donors</h3>';
+            
+            if (donorsList.length === 0) {
+                adminDonorList.innerHTML += '<p>No donors found.</p>';
+                return;
+            }
+            
+            donorsList.forEach(donor => {
+                const lastDonation = new Date(donor.lastDonation).toLocaleDateString();
+                
+                const donorCard = document.createElement('div');
+                donorCard.className = donor.readyToDonate ? 'donor-card ready-to-donate' : 'donor-card';
+                donorCard.innerHTML = `
+                    <div class="donor-header">
+                        <div class="donor-name">${donor.name} ${donor.readyToDonate ? '<span class="ready-badge">Ready</span>' : ''}</div>
+                        <a href="tel:${donor.contact}" class="btn-call">
+                            <i class="fas fa-phone"></i> Call
+                        </a>
+                    </div>
+                    <div class="donor-details">
+                        <div><strong>Blood Group:</strong> ${donor.bloodGroup}</div>
+                        <div><strong>Contact:</strong> ${donor.contact}</div>
+                        <div><strong>Address:</strong> ${donor.address}</div>
+                        <div><strong>Father's Name:</strong> ${donor.father}</div>
+                    </div>
+                    <div class="donation-info">
+                        <strong>Last Donation:</strong> ${lastDonation} | <strong>Total Donations:</strong> ${donor.donationCount}
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <button class="btn btn-primary edit-btn" data-id="${donor.id}" style="padding: 8px 15px; margin-right: 10px;">Edit</button>
+                        <button class="btn btn-danger delete-btn" data-id="${donor.id}" style="padding: 8px 15px;">Delete</button>
+                    </div>
+                `;
+                adminDonorList.appendChild(donorCard);
+            });
+            
+            // Add event listeners to edit and delete buttons
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const donorId = parseInt(e.target.dataset.id);
+                    editDonor(donorId);
+                });
+            });
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const donorId = parseInt(e.target.dataset.id);
+                    deleteDonor(donorId);
+                });
+            });
+        }
+
+        // Function to edit donor
+        function editDonor(id) {
+            const donor = donors.find(d => d.id === id);
+            if (donor) {
+                document.getElementById('edit-donor-id').value = donor.id;
+                document.getElementById('edit-donorName').value = donor.name;
+                document.getElementById('edit-fatherName').value = donor.father;
+                document.getElementById('edit-address').value = donor.address;
+                document.getElementById('edit-contact').value = donor.contact;
+                document.getElementById('edit-bloodGroup').value = donor.bloodGroup;
+                document.getElementById('last-donation').value = donor.lastDonation;
+                document.getElementById('donation-count').value = donor.donationCount;
+                document.getElementById('edit-ready-to-donate').checked = donor.readyToDonate;
+                
+                // Select the blood group in the modal
+                document.querySelectorAll('#edit-donor-form .blood-group').forEach(group => {
+                    group.classList.remove('selected');
+                    if (group.dataset.value === donor.bloodGroup) {
+                        group.classList.add('selected');
+                    }
+                });
+                
+                document.getElementById('editModal').style.display = 'block';
+            }
+        }
+
+        // Function to delete donor
+        function deleteDonor(id) {
+            if (confirm('Are you sure you want to delete this donor?')) {
+                donors = donors.filter(d => d.id !== id);
+                displayAllDonors();
+                updateHomePageStats();
+                alert('Donor deleted successfully!');
+            }
+        }
+
+        // Edit donor form submission
+        document.getElementById('edit-donor-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const id = parseInt(document.getElementById('edit-donor-id').value);
+            const name = document.getElementById('edit-donorName').value;
+            const father = document.getElementById('edit-fatherName').value;
+            const address = document.getElementById('edit-address').value;
+            const contact = document.getElementById('edit-contact').value;
+            const bloodGroup = document.getElementById('edit-bloodGroup').value;
+            const lastDonation = document.getElementById('last-donation').value;
+            const donationCount = parseInt(document.getElementById('donation-count').value);
+            const readyToDonate = document.getElementById('edit-ready-to-donate').checked;
+            
+            const index = donors.findIndex(d => d.id === id);
+            if (index !== -1) {
+                donors[index] = {
+                    ...donors[index],
+                    name,
+                    father,
+                    address,
+                    contact,
+                    bloodGroup,
+                    lastDonation,
+                    donationCount,
+                    readyToDonate
+                };
+                
+                document.getElementById('editModal').style.display = 'none';
+                displayAllDonors();
+                updateHomePageStats();
+                alert('Donor information updated successfully!');
+            }
+        });
+
+        // Blood group selection in edit form
+        document.querySelectorAll('#edit-donor-form .blood-group').forEach(group => {
+            group.addEventListener('click', () => {
+                // Remove selected class from all groups
+                document.querySelectorAll('#edit-donor-form .blood-group').forEach(g => g.classList.remove('selected'));
+                
+                // Add selected class to clicked group
+                group.classList.add('selected');
+                document.getElementById('edit-bloodGroup').value = group.dataset.value;
+            });
+        });
+
+        // Function to export data
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(donors, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "blood_donors_data.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+            alert('Data exported successfully!');
+        }
+
+        // Initialize blood group selection in edit modal
+        document.querySelectorAll('#edit-donor-form .blood-group').forEach(group => {
+            group.addEventListener('click', () => {
+                document.querySelectorAll('#edit-donor-form .blood-group').forEach(g => g.classList.remove('selected'));
+                group.classList.add('selected');
+                document.getElementById('edit-bloodGroup').value = group.dataset.value;
+            });
+        });
+
+        // Initialize home page stats
+        updateHomePageStats();
+    </script>
+</body>
+</html>
